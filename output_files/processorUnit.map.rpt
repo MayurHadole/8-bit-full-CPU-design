@@ -1,0 +1,515 @@
+Analysis & Synthesis report for processorUnit
+Tue Jul 04 10:31:47 2017
+Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. User-Specified and Inferred Latches
+  9. Logic Cells Representing Combinational Loops
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Port Connectivity Checks: "SevenSegmentDecoder:SevenSegmentDecoder_inst5"
+ 14. Port Connectivity Checks: "carMux1Mux2:carMux1Mux2_inst"
+ 15. Port Connectivity Checks: "microcode_rom:microcode_rom_inst"
+ 16. Post-Synthesis Netlist Statistics for Top Partition
+ 17. Elapsed Time Per Partition
+ 18. Analysis & Synthesis Messages
+ 19. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus II License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Tue Jul 04 10:31:47 2017       ;
+; Quartus II 64-Bit Version       ; 15.0.0 Build 145 04/22/2015 SJ Full Version ;
+; Revision Name                   ; processorUnit                               ;
+; Top-level Entity Name           ; CPU                                         ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 32                                          ;
+; Total pins                      ; 67                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; CPU                ; processorUnit      ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                       ; Off                ; Off                ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; PowerPlay Power Optimization During Synthesis                                   ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Synthesis Seed                                                                  ; 1                  ; 1                  ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                     ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                       ; Library ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------------+---------+
+; SevenSegmentDecoder.v            ; yes             ; User Verilog HDL File  ; G:/semester 4/Reconfig Systems/ProcessorUnit/SevenSegmentDecoder.v ;         ;
+; microcode_rom.v                  ; yes             ; User Verilog HDL File  ; G:/semester 4/Reconfig Systems/ProcessorUnit/microcode_rom.v       ;         ;
+; SHIFTER.v                        ; yes             ; User Verilog HDL File  ; G:/semester 4/Reconfig Systems/ProcessorUnit/SHIFTER.v             ;         ;
+; REGFILE.v                        ; yes             ; User Verilog HDL File  ; G:/semester 4/Reconfig Systems/ProcessorUnit/REGFILE.v             ;         ;
+; ALU.v                            ; yes             ; User Verilog HDL File  ; G:/semester 4/Reconfig Systems/ProcessorUnit/ALU.v                 ;         ;
+; processorUnit.v                  ; yes             ; User Verilog HDL File  ; G:/semester 4/Reconfig Systems/ProcessorUnit/processorUnit.v       ;         ;
+; CPU.v                            ; yes             ; User Verilog HDL File  ; G:/semester 4/Reconfig Systems/ProcessorUnit/CPU.v                 ;         ;
+; carMux1Mux2.v                    ; yes             ; User Verilog HDL File  ; G:/semester 4/Reconfig Systems/ProcessorUnit/carMux1Mux2.v         ;         ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                       ;
++---------------------------------------------+-------------------------------------+
+; Resource                                    ; Usage                               ;
++---------------------------------------------+-------------------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 133                                 ;
+;                                             ;                                     ;
+; Combinational ALUT usage for logic          ; 201                                 ;
+;     -- 7 input functions                    ; 1                                   ;
+;     -- 6 input functions                    ; 61                                  ;
+;     -- 5 input functions                    ; 41                                  ;
+;     -- 4 input functions                    ; 64                                  ;
+;     -- <=3 input functions                  ; 34                                  ;
+;                                             ;                                     ;
+; Dedicated logic registers                   ; 32                                  ;
+;                                             ;                                     ;
+; I/O pins                                    ; 67                                  ;
+;                                             ;                                     ;
+; Total DSP Blocks                            ; 0                                   ;
+;                                             ;                                     ;
+; Maximum fan-out node                        ; carMux1Mux2:carMux1Mux2_inst|CAR[7] ;
+; Maximum fan-out                             ; 82                                  ;
+; Total fan-out                               ; 1149                                ;
+; Average fan-out                             ; 3.13                                ;
++---------------------------------------------+-------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                  ;
++----------------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+--------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                         ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                    ; Library Name ;
++----------------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+--------------------------------------------------------+--------------+
+; |CPU                                               ; 201 (2)           ; 32 (0)       ; 0                 ; 0          ; 67   ; 0            ; |CPU                                                   ; work         ;
+;    |SevenSegmentDecoder:SevenSegmentDecoder_inst1| ; 7 (7)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |CPU|SevenSegmentDecoder:SevenSegmentDecoder_inst1     ; work         ;
+;    |SevenSegmentDecoder:SevenSegmentDecoder_inst2| ; 7 (7)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |CPU|SevenSegmentDecoder:SevenSegmentDecoder_inst2     ; work         ;
+;    |SevenSegmentDecoder:SevenSegmentDecoder_inst3| ; 7 (7)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |CPU|SevenSegmentDecoder:SevenSegmentDecoder_inst3     ; work         ;
+;    |SevenSegmentDecoder:SevenSegmentDecoder_inst4| ; 7 (7)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |CPU|SevenSegmentDecoder:SevenSegmentDecoder_inst4     ; work         ;
+;    |SevenSegmentDecoder:SevenSegmentDecoder_inst5| ; 4 (4)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |CPU|SevenSegmentDecoder:SevenSegmentDecoder_inst5     ; work         ;
+;    |carMux1Mux2:carMux1Mux2_inst|                  ; 8 (8)             ; 8 (8)        ; 0                 ; 0          ; 0    ; 0            ; |CPU|carMux1Mux2:carMux1Mux2_inst                      ; work         ;
+;    |microcode_rom:microcode_rom_inst|              ; 33 (33)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |CPU|microcode_rom:microcode_rom_inst                  ; work         ;
+;    |processorUnit:processorUnit_inst|              ; 126 (0)           ; 24 (0)       ; 0                 ; 0          ; 0    ; 0            ; |CPU|processorUnit:processorUnit_inst                  ; work         ;
+;       |ALU:alu1|                                   ; 72 (72)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |CPU|processorUnit:processorUnit_inst|ALU:alu1         ; work         ;
+;       |REGFILE:regfile1|                           ; 42 (42)           ; 24 (24)      ; 0                 ; 0          ; 0    ; 0            ; |CPU|processorUnit:processorUnit_inst|REGFILE:regfile1 ; work         ;
+;       |SHIFTER:shifter1|                           ; 12 (12)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |CPU|processorUnit:processorUnit_inst|SHIFTER:shifter1 ; work         ;
++----------------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+--------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                               ;
++------------------------------------------------------+---------------------------------------------------+------------------------+
+; Latch Name                                           ; Latch Enable Signal                               ; Free of Timing Hazards ;
++------------------------------------------------------+---------------------------------------------------+------------------------+
+; processorUnit:processorUnit_inst|ALU:alu1|aluadd[8]  ; processorUnit:processorUnit_inst|ALU:alu1|WideOr0 ; yes                    ;
+; processorUnit:processorUnit_inst|SHIFTER:shifter1|CO ; WideNor0                                          ; yes                    ;
+; Number of user-specified and inferred latches = 2    ;                                                   ;                        ;
++------------------------------------------------------+---------------------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------------+
+; Logic Cells Representing Combinational Loops               ;
++--------------------------------------------------------+---+
+; Logic Cell Name                                        ;   ;
++--------------------------------------------------------+---+
+; processorUnit:processorUnit_inst|ALU:alu1|F[7]         ;   ;
+; processorUnit:processorUnit_inst|ALU:alu1|F[0]         ;   ;
+; processorUnit:processorUnit_inst|ALU:alu1|F[1]         ;   ;
+; processorUnit:processorUnit_inst|ALU:alu1|F[2]         ;   ;
+; processorUnit:processorUnit_inst|ALU:alu1|F[3]         ;   ;
+; processorUnit:processorUnit_inst|ALU:alu1|F[4]         ;   ;
+; processorUnit:processorUnit_inst|ALU:alu1|F[5]         ;   ;
+; processorUnit:processorUnit_inst|ALU:alu1|F[6]         ;   ;
+; Number of logic cells representing combinational loops ; 8 ;
++--------------------------------------------------------+---+
+Note: All cells listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                             ;
++--------------------------------------------------------------+-------------------------------------------------+
+; Register name                                                ; Reason for Removal                              ;
++--------------------------------------------------------------+-------------------------------------------------+
+; processorUnit:processorUnit_inst|REGFILE:regfile1|reg4[0,1]  ; Stuck at GND due to stuck port clock_enable     ;
+; processorUnit:processorUnit_inst|REGFILE:regfile1|reg4[2,3]  ; Stuck at VCC due to stuck port clock_enable     ;
+; processorUnit:processorUnit_inst|REGFILE:regfile1|reg4[4]    ; Stuck at GND due to stuck port clock_enable     ;
+; processorUnit:processorUnit_inst|REGFILE:regfile1|reg4[5]    ; Stuck at VCC due to stuck port clock_enable     ;
+; processorUnit:processorUnit_inst|REGFILE:regfile1|reg4[6]    ; Stuck at GND due to stuck port clock_enable     ;
+; processorUnit:processorUnit_inst|REGFILE:regfile1|reg4[7]    ; Stuck at VCC due to stuck port clock_enable     ;
+; processorUnit:processorUnit_inst|REGFILE:regfile1|reg5[0..6] ; Stuck at GND due to stuck port clock_enable     ;
+; processorUnit:processorUnit_inst|REGFILE:regfile1|reg5[7]    ; Stuck at VCC due to stuck port clock_enable     ;
+; processorUnit:processorUnit_inst|REGFILE:regfile1|reg6[0..7] ; Stuck at VCC due to stuck port clock_enable     ;
+; processorUnit:processorUnit_inst|REGFILE:regfile1|reg7[0]    ; Stuck at VCC due to stuck port clock_enable     ;
+; processorUnit:processorUnit_inst|REGFILE:regfile1|reg7[1,2]  ; Stuck at GND due to stuck port clock_enable     ;
+; processorUnit:processorUnit_inst|REGFILE:regfile1|reg7[3,4]  ; Stuck at VCC due to stuck port clock_enable     ;
+; processorUnit:processorUnit_inst|REGFILE:regfile1|reg7[5]    ; Stuck at GND due to stuck port clock_enable     ;
+; processorUnit:processorUnit_inst|REGFILE:regfile1|reg7[6]    ; Stuck at VCC due to stuck port clock_enable     ;
+; processorUnit:processorUnit_inst|REGFILE:regfile1|reg7[7]    ; Stuck at GND due to stuck port clock_enable     ;
+; carMux1Mux2:carMux1Mux2_inst|outputAddress[7]                ; Merged with carMux1Mux2:carMux1Mux2_inst|CAR[7] ;
+; carMux1Mux2:carMux1Mux2_inst|outputAddress[6]                ; Merged with carMux1Mux2:carMux1Mux2_inst|CAR[6] ;
+; carMux1Mux2:carMux1Mux2_inst|outputAddress[5]                ; Merged with carMux1Mux2:carMux1Mux2_inst|CAR[5] ;
+; carMux1Mux2:carMux1Mux2_inst|outputAddress[4]                ; Merged with carMux1Mux2:carMux1Mux2_inst|CAR[4] ;
+; carMux1Mux2:carMux1Mux2_inst|outputAddress[3]                ; Merged with carMux1Mux2:carMux1Mux2_inst|CAR[3] ;
+; carMux1Mux2:carMux1Mux2_inst|outputAddress[2]                ; Merged with carMux1Mux2:carMux1Mux2_inst|CAR[2] ;
+; carMux1Mux2:carMux1Mux2_inst|outputAddress[1]                ; Merged with carMux1Mux2:carMux1Mux2_inst|CAR[1] ;
+; carMux1Mux2:carMux1Mux2_inst|outputAddress[0]                ; Merged with carMux1Mux2:carMux1Mux2_inst|CAR[0] ;
+; Total Number of Removed Registers = 40                       ;                                                 ;
++--------------------------------------------------------------+-------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 32    ;
+; Number of registers using Synchronous Clear  ; 8     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 24    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |CPU|processorUnit:processorUnit_inst|REGFILE:regfile1|Mux8 ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |CPU|processorUnit:processorUnit_inst|REGFILE:regfile1|Mux0 ;
+; 16:1               ; 7 bits    ; 70 LEs        ; 42 LEs               ; 28 LEs                 ; No         ; |CPU|processorUnit:processorUnit_inst|ALU:alu1|Mux0         ;
+; 6:1                ; 5 bits    ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; No         ; |CPU|processorUnit:processorUnit_inst|SHIFTER:shifter1|Mux6 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------+
+; Port Connectivity Checks: "SevenSegmentDecoder:SevenSegmentDecoder_inst5" ;
++--------+-------+----------+-----------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                       ;
++--------+-------+----------+-----------------------------------------------+
+; INP[0] ; Input ; Info     ; Stuck at GND                                  ;
++--------+-------+----------+-----------------------------------------------+
+
+
++----------------------------------------------------------+
+; Port Connectivity Checks: "carMux1Mux2:carMux1Mux2_inst" ;
++-----------------+-------+----------+---------------------+
+; Port            ; Type  ; Severity ; Details             ;
++-----------------+-------+----------+---------------------+
+; externalAddress ; Input ; Info     ; Stuck at GND        ;
++-----------------+-------+----------+---------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "microcode_rom:microcode_rom_inst"                                                             ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port           ; Type   ; Severity ; Details                                                                             ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; DATA_out[3..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 32                          ;
+;     ENA               ; 24                          ;
+;     SCLR              ; 8                           ;
+; arriav_lcell_comb     ; 212                         ;
+;     arith             ; 43                          ;
+;         0 data inputs ; 3                           ;
+;         1 data inputs ; 8                           ;
+;         4 data inputs ; 17                          ;
+;         5 data inputs ; 15                          ;
+;     extend            ; 1                           ;
+;         7 data inputs ; 1                           ;
+;     normal            ; 168                         ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 9                           ;
+;         2 data inputs ; 10                          ;
+;         3 data inputs ; 13                          ;
+;         4 data inputs ; 47                          ;
+;         5 data inputs ; 26                          ;
+;         6 data inputs ; 61                          ;
+; boundary_port         ; 67                          ;
+;                       ;                             ;
+; Max LUT depth         ; 9.80                        ;
+; Average LUT depth     ; 6.60                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 15.0.0 Build 145 04/22/2015 SJ Full Version
+    Info: Processing started: Tue Jul 04 10:31:34 2017
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off processorUnit -c processorUnit
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file sevensegmentdecoder.v
+    Info (12023): Found entity 1: SevenSegmentDecoder
+Info (12021): Found 1 design units, including 1 entities, in source file microcode_rom.v
+    Info (12023): Found entity 1: microcode_rom
+Info (12021): Found 1 design units, including 1 entities, in source file shifter.v
+    Info (12023): Found entity 1: SHIFTER
+Info (12021): Found 1 design units, including 1 entities, in source file regfile.v
+    Info (12023): Found entity 1: REGFILE
+Info (12021): Found 1 design units, including 1 entities, in source file alu.v
+    Info (12023): Found entity 1: ALU
+Info (12021): Found 1 design units, including 1 entities, in source file processorunit.v
+    Info (12023): Found entity 1: processorUnit
+Info (12021): Found 1 design units, including 1 entities, in source file cpu.v
+    Info (12023): Found entity 1: CPU
+Info (12021): Found 1 design units, including 1 entities, in source file carmux1mux2.v
+    Info (12023): Found entity 1: carMux1Mux2
+Critical Warning (10226): Verilog HDL Port Declaration warning at CPU.v(56): port declaration for "led" declares unpacked dimensions but the data type declaration does not
+Info (10499): HDL info at CPU.v(26): see declaration for object "led"
+Warning (10227): Verilog HDL Port Declaration warning at CPU.v(56): data type declaration for "led" declares packed dimensions but the port declaration declaration does not
+Info (12127): Elaborating entity "CPU" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at CPU.v(42): object "MISC" assigned a value but never read
+Warning (10235): Verilog HDL Always Construct warning at CPU.v(164): variable "HSEL" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at CPU.v(167): variable "CO" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at CPU.v(168): variable "s" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at CPU.v(169): variable "z" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at CPU.v(170): variable "v" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at CPU.v(173): variable "CO" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at CPU.v(174): variable "s" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at CPU.v(175): variable "z" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at CPU.v(176): variable "v" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at CPU.v(179): variable "c" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at CPU.v(180): variable "s" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at CPU.v(181): variable "z" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at CPU.v(182): variable "v" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10034): Output port "DEBUG[5..0]" at CPU.v(23) has no driver
+Info (12128): Elaborating entity "microcode_rom" for hierarchy "microcode_rom:microcode_rom_inst"
+Info (12128): Elaborating entity "processorUnit" for hierarchy "processorUnit:processorUnit_inst"
+Info (12128): Elaborating entity "REGFILE" for hierarchy "processorUnit:processorUnit_inst|REGFILE:regfile1"
+Warning (10235): Verilog HDL Always Construct warning at REGFILE.v(51): variable "DIN" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at REGFILE.v(52): variable "reg1" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at REGFILE.v(53): variable "reg2" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at REGFILE.v(54): variable "reg3" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at REGFILE.v(55): variable "reg4" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at REGFILE.v(56): variable "reg5" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at REGFILE.v(57): variable "reg6" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at REGFILE.v(58): variable "reg7" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at REGFILE.v(65): variable "DIN" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at REGFILE.v(66): variable "reg1" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at REGFILE.v(67): variable "reg2" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at REGFILE.v(68): variable "reg3" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at REGFILE.v(69): variable "reg4" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at REGFILE.v(70): variable "reg5" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at REGFILE.v(71): variable "reg6" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at REGFILE.v(72): variable "reg7" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Info (12128): Elaborating entity "ALU" for hierarchy "processorUnit:processorUnit_inst|ALU:alu1"
+Warning (10230): Verilog HDL assignment warning at ALU.v(38): truncated value with size 32 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at ALU.v(47): truncated value with size 32 to match size of target (8)
+Warning (10270): Verilog HDL Case Statement warning at ALU.v(35): incomplete case statement has no default case item
+Warning (10240): Verilog HDL Always Construct warning at ALU.v(32): inferring latch(es) for variable "accumulator", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at ALU.v(32): inferring latch(es) for variable "aluadd", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "aluadd[8]" at ALU.v(32)
+Info (12128): Elaborating entity "SHIFTER" for hierarchy "processorUnit:processorUnit_inst|SHIFTER:shifter1"
+Warning (10240): Verilog HDL Always Construct warning at SHIFTER.v(31): inferring latch(es) for variable "RCinput", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at SHIFTER.v(31): inferring latch(es) for variable "f0Temp", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at SHIFTER.v(31): inferring latch(es) for variable "RCoutput", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at SHIFTER.v(31): inferring latch(es) for variable "CO", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at SHIFTER.v(31): inferring latch(es) for variable "MSBtemp", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "CO" at SHIFTER.v(31)
+Info (12128): Elaborating entity "carMux1Mux2" for hierarchy "carMux1Mux2:carMux1Mux2_inst"
+Warning (10230): Verilog HDL assignment warning at carMux1Mux2.v(56): truncated value with size 32 to match size of target (8)
+Info (12128): Elaborating entity "SevenSegmentDecoder" for hierarchy "SevenSegmentDecoder:SevenSegmentDecoder_inst1"
+Warning (13012): Latch processorUnit:processorUnit_inst|ALU:alu1|aluadd[8] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal carMux1Mux2:carMux1Mux2_inst|CAR[7]
+Warning (13012): Latch processorUnit:processorUnit_inst|SHIFTER:shifter1|CO has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal carMux1Mux2:carMux1Mux2_inst|CAR[5]
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "DEBUG[0]" is stuck at GND
+    Warning (13410): Pin "DEBUG[1]" is stuck at GND
+    Warning (13410): Pin "DEBUG[2]" is stuck at GND
+    Warning (13410): Pin "DEBUG[3]" is stuck at GND
+    Warning (13410): Pin "DEBUG[4]" is stuck at GND
+    Warning (13410): Pin "DEBUG[5]" is stuck at GND
+    Warning (13410): Pin "temp[0]" is stuck at VCC
+    Warning (13410): Pin "temp[1]" is stuck at VCC
+    Warning (13410): Pin "temp[2]" is stuck at VCC
+    Warning (13410): Pin "led[0]" is stuck at GND
+    Warning (13410): Pin "led[1]" is stuck at GND
+Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file G:/semester 4/Reconfig Systems/ProcessorUnit/output_files/processorUnit.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 292 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 9 input pins
+    Info (21059): Implemented 58 output pins
+    Info (21061): Implemented 225 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 60 warnings
+    Info: Peak virtual memory: 739 megabytes
+    Info: Processing ended: Tue Jul 04 10:31:47 2017
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:23
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in G:/semester 4/Reconfig Systems/ProcessorUnit/output_files/processorUnit.map.smsg.
+
+

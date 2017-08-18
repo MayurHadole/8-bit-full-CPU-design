@@ -1,0 +1,17 @@
+module carMux1Mux2(clk,Z,S,C,V,internalAddress,externalAddress,mux1Select,mux2Select,outputAddress);
+
+input clk;
+input Z,S,C,V;
+input [7:0] internalAddress;
+input [7:0] externalAddress;
+input mux1Select;
+input [2:0] mux2Select;
+output [7:0] outputAddress;
+
+wire [7:0] internalAddress;
+wire [7:0] externalAddress;
+wire mux1Select;
+wire [2:0] mux2Select;
+wire [7:0] outputAddress;
+
+endmodule

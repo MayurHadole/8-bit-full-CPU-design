@@ -1,0 +1,55 @@
+module CPU(CLK,DATA_I,DATA_O,DEBUG);
+
+input CLK;
+input [7:0]DATA_I;
+output [7:0]DATA_O;
+output [15:0]DEBUG;
+
+   wire [31:0]  DATA_out;
+   wire [ 2:0]  ASEL;
+   wire [ 2:0]  BSEL;
+   wire [ 2:0]  DSEL;
+   wire [ 3:0]  SSEL;
+   wire [ 2:0]  HSEL;
+   wire         MUX1;
+   wire [ 2:0]  MUX2;
+   wire [ 7:0]  ADRS;
+   wire [ 3:0]  MISC;
+
+
+   assign                 ASEL = DATA_out[31:29];    // bit size:3
+   assign                 BSEL = DATA_out[28:26];    // bit size:3
+   assign                 DSEL = DATA_out[25:23];    // bit size:3
+   assign                 SSEL = DATA_out[22:19];    // bit size:4
+   assign                 HSEL = DATA_out[18:16];    // bit size:3
+   assign                 MUX1 = DATA_out[15];       // bit size:1
+   assign                 MUX2 = DATA_out[14:12];    // bit size:3
+   assign                 ADRS = DATA_out[11: 4];    // bit size:8
+   assign                 MISC = DATA_out[ 3: 0];    // bit size:4
+
+	
+microcode_rom microcode_rom_inst
+(
+	.ADDR_in(ADDR_in_sig) ,	// input [7:0] ADDR_in_sig
+	.DATA_out(DATA_out_sig) 	// output [31:0] DATA_out_sig
+);
+	
+	
+processorUnit processorUnit_inst
+(
+	.CLK(CLK_sig) ,	// input  CLK_sig
+	.DATA_I(DATA_I_sig) ,	// input [7:0] DATA_I_sig
+	.ASEL(ASEL_sig) ,	// input [2:0] ASEL_sig
+	.BSEL(BSEL_sig) ,	// input [2:0] BSEL_sig
+	.DSEL(DSEL_sig) ,	// input [2:0] DSEL_sig
+	.SSEL(SSEL_sig) ,	// input [3:0] SSEL_sig
+	.HSEL(HSEL_sig) ,	// input [2:0] HSEL_sig
+	.DATA_O(DATA_O_sig) ,	// output [7:0] DATA_O_sig
+	.z(z_sig) ,	// output  z_sig
+	.s(s_sig) ,	// output  s_sig
+	.c(c_sig) ,	// output  c_sig
+	.v(v_sig) ,	// output  v_sig
+	.CO(CO_sig) 	// output  CO_sig
+);
+
+endmodule

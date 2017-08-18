@@ -1,0 +1,101 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'carMux1Mux2:carMux1Mux2_inst|CAR[0]'
+Slack : -16.616
+TNS   : -29.825
+
+Type  : Slow 1100mV 85C Model Setup 'CLK'
+Slack : -15.197
+TNS   : -311.965
+
+Type  : Slow 1100mV 85C Model Hold 'CLK'
+Slack : -7.026
+TNS   : -168.150
+
+Type  : Slow 1100mV 85C Model Hold 'carMux1Mux2:carMux1Mux2_inst|CAR[0]'
+Slack : -2.501
+TNS   : -2.501
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'carMux1Mux2:carMux1Mux2_inst|CAR[0]'
+Slack : -1.683
+TNS   : -6.376
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'CLK'
+Slack : -0.394
+TNS   : -22.766
+
+Type  : Slow 1100mV 0C Model Setup 'carMux1Mux2:carMux1Mux2_inst|CAR[0]'
+Slack : -16.315
+TNS   : -29.375
+
+Type  : Slow 1100mV 0C Model Setup 'CLK'
+Slack : -14.692
+TNS   : -302.225
+
+Type  : Slow 1100mV 0C Model Hold 'CLK'
+Slack : -6.899
+TNS   : -166.711
+
+Type  : Slow 1100mV 0C Model Hold 'carMux1Mux2:carMux1Mux2_inst|CAR[0]'
+Slack : -2.492
+TNS   : -2.492
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'carMux1Mux2:carMux1Mux2_inst|CAR[0]'
+Slack : -1.543
+TNS   : -5.865
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'CLK'
+Slack : -0.394
+TNS   : -20.583
+
+Type  : Fast 1100mV 85C Model Setup 'CLK'
+Slack : -9.530
+TNS   : -196.153
+
+Type  : Fast 1100mV 85C Model Setup 'carMux1Mux2:carMux1Mux2_inst|CAR[0]'
+Slack : -9.480
+TNS   : -16.606
+
+Type  : Fast 1100mV 85C Model Hold 'CLK'
+Slack : -3.926
+TNS   : -91.901
+
+Type  : Fast 1100mV 85C Model Hold 'carMux1Mux2:carMux1Mux2_inst|CAR[0]'
+Slack : -1.454
+TNS   : -1.454
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'carMux1Mux2:carMux1Mux2_inst|CAR[0]'
+Slack : -0.938
+TNS   : -2.646
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'CLK'
+Slack : -0.346
+TNS   : -11.171
+
+Type  : Fast 1100mV 0C Model Setup 'carMux1Mux2:carMux1Mux2_inst|CAR[0]'
+Slack : -8.786
+TNS   : -15.515
+
+Type  : Fast 1100mV 0C Model Setup 'CLK'
+Slack : -8.369
+TNS   : -168.549
+
+Type  : Fast 1100mV 0C Model Hold 'CLK'
+Slack : -3.828
+TNS   : -92.412
+
+Type  : Fast 1100mV 0C Model Hold 'carMux1Mux2:carMux1Mux2_inst|CAR[0]'
+Slack : -1.313
+TNS   : -1.313
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'carMux1Mux2:carMux1Mux2_inst|CAR[0]'
+Slack : -0.736
+TNS   : -2.058
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'CLK'
+Slack : -0.321
+TNS   : -10.394
+
+------------------------------------------------------------

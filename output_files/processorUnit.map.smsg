@@ -1,0 +1,5 @@
+Info (10281): Verilog HDL Declaration information at CPU.v(24): object "dselo" differs only in case from object "DSELo" in the same scope
+Info (10281): Verilog HDL Declaration information at CPU.v(60): object "Z" differs only in case from object "z" in the same scope
+Info (10281): Verilog HDL Declaration information at CPU.v(60): object "S" differs only in case from object "s" in the same scope
+Info (10281): Verilog HDL Declaration information at CPU.v(60): object "C" differs only in case from object "c" in the same scope
+Info (10281): Verilog HDL Declaration information at CPU.v(60): object "V" differs only in case from object "v" in the same scope

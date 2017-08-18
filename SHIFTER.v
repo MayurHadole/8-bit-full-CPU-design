@@ -1,0 +1,70 @@
+/*File          : SHIFTER.v 
+--Group         : Group 8
+--Programmers   : Mayur Hadole(7475783) & Rohit Bhardwaj (7639651)
+--Version       : 1.0  (May 26 , 2017)
+--Hardware used : Cyclone V (DE1 SoC)
+--Software used : Quartus II 15 64 bit
+--Description   : This program implements 8 bit SHIFTER on DE1 SoC board using Verilog
+
+-- code is working and is tested on board
+*/
+
+module SHIFTER(f,HSEL,CI,S,CO);             // Module names and I/o pins are declared
+
+input [7:0] f;                              // Input Bus F
+input [2:0] HSEL;									  // Function Select (Input)
+input CI;                                   // Carry In
+
+output [7:0] S;								     // Shifter Output
+output CO;                                  // Carry Out
+
+reg [7:0] S;      
+reg CO;
+reg [7:0] shiftOutput;                      // 8 bit register to save the data of shiftOutput 
+reg [7:0] save;                      // 8 bit register to save the data of shiftOutput 
+reg [8:0] RCinput;                          // 9 bit register to save the data of RCinput
+reg [8:0] RCoutput;                         // 9 bit register to save the data of RCoutput 
+reg f0Temp;
+reg MSBtemp;
+
+
+always @(HSEL,f,CI)    // always block loop to execute over and over again
+
+begin             // start of the code block which will be always executed
+	case (HSEL)    // The case statement compares HSEL to a series of cases and
+	               //	executes the statement associated with the first matching case
+	   3'b000 : shiftOutput = f;  						//transfer A
+		3'b001 : shiftOutput = f << 1;   				// shift left
+		3'b010 : shiftOutput = f >> 1;   				// shift right
+		3'b011 : shiftOutput = f & 8'b00000000;      // Make output zero
+		3'b100 : begin											// Rotate left through carry
+		             RCinput = {CI,f};               // concatinating CI and F. Result is 9 bits
+						 RCoutput = RCinput << 1;        // shifting left by one bit (on 9 bit register)
+						 RCoutput[0] = CI;					//Carry in is transfered in LSB of 9 bit register ( to get rotation)
+						 shiftOutput = RCoutput[7:0];    // discarding MSB of 9 bit register to get total left rotation by one bit
+						 CO = RCoutput[8];               // MSB is sent to carry
+				   end
+	  3'b101 : begin                               // rotate left without carry
+                   MSBtemp = f[7];                //saving MSB of F because it will be discarded after shift left operation
+						 shiftOutput = f << 1;          // shift left by 1 bit
+						 shiftOutput[0] = MSBtemp;      //saved MSB is transferred to LSB of result to get rotate left operation
+				  end
+	  3'b110 : begin										  //rotate right without carry
+                   f0Temp = f[0];                 //saving LSB of F because it will be discarded after shift right operation
+						 shiftOutput = f >> 1;			  //shift right by 1 bit
+						 shiftOutput[7] = f0Temp;		  //Saved LSB is transferred to MSB of result to get rotate right operation
+				  end
+				  
+	  3'b111 : begin										  // Rotate right through carry
+		             RCinput = {CI,f};              // concatinating CI and F. Result is 9 bits
+						 f0Temp = RCinput[0];		     // LSB of 9 bit register is saved as it will be discarded 
+						 RCoutput = RCinput >> 1;       // shifting right by one bit (on 9 bit register)
+						 RCoutput[8] = f0Temp;          // saved LSB of 9 bit register is transferred to the MSB of same register
+						 shiftOutput = RCoutput[7:0];   // discarding MSB of 9 bit register to get total left rotation by one bit
+						 CO = f0Temp;						  // MSB is sent to carry
+				  end
+	endcase;
+   S = shiftOutput;                           // sending output result to output line
+end
+endmodule
+	

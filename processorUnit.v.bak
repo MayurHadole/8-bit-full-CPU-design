@@ -1,0 +1,11 @@
+module CPU(CLK,DATA_I,DATA_O,DEBUG);
+
+input CLK;
+input [7:0]DATA_I;
+output [7:0]DATA_O;
+output [15:0]DEBUG;
+
+reg [5:0]CAR;
+wire [31:0]CW = DATA_out;
+reg [15:0]DEBUG;
+reg z,s,c,v;   
